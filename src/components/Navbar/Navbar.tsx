@@ -1,4 +1,5 @@
-import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import { Searchbar } from "./Searchbar";
 export type NavBarLink = {
   path: string;
   title: string;
@@ -16,43 +17,25 @@ export function NavBar({ links }: Props) {
           babyboo for professionals
         </span>
       </div>
-      <div className="flex items-center justify-center gap-7 h-5">
+      <div className="bg-[#362B24] h-20 flex justify-center items-center gap-7 ">
+        <div>logo here</div>
         {links.map((link) => (
-          <div className="">{link.title}</div>
+          <NavLink to={link.path} className="text-white h-5">
+            {link.title}
+          </NavLink>
         ))}
+        <Searchbar />
       </div>
     </div>
   );
 }
 
-// /* Frame 1 */
+/* Rectangle 2 */
 
-// /* Auto layout */
-// display: flex;
-// flex-direction: row;
-// align-items: flex-start;
-// padding: 0px;
-// gap: 27px;
+// position: absolute;
+// width: 1920px;
+// height: 77px;
+// left: 0px;
+// top: 31px;
 
-// width: 724px;
-// height: 21px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
-
-// /* Serier */
-
-// width: 41px;
-// height: 21px;
-
-// font-family: 'Oswald';
-// font-style: normal;
-// font-weight: 700;
-// font-size: 14px;
-// line-height: 21px;
-// /* identical to box height */
-// text-transform: uppercase;
-
-// color: #FFFFFF;
+// background: #362B24;
