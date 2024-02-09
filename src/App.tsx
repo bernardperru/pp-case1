@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { NavBarLink } from "./components/Navbar/Navbar";
+import { NavBar } from "./components/Navbar/Navbar";
+import "./App.css";
+
+const routes: NavBarLink[] = [
+  { path: "", title: "SERIER" },
+  { path: "", title: "VUGGE" },
+  { path: "", title: "BØRNESENGE" },
+  { path: "", title: "OPBEVARING" },
+  { path: "", title: "HØJSTOL" },
+  { path: "", title: "PUSLE" },
+  { path: "", title: "TEKSTILER" },
+  { path: "", title: "TILBEHØR" },
+  { path: "", title: "RESERVEDELE" },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar links={routes}></NavBar>
     </div>
   );
 }
