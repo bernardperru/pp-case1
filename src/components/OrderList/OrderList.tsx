@@ -21,7 +21,7 @@ export function OrderList() {
   }
 
   return (
-    <div className="absolute bg-[#F5F5F5] w-3/12 h-96 left-60">
+    <div className="absolute bg-[#F5F5F5] w-3/12 left-60 rounded-xl">
       <span>12 produkter</span> <span>total: 400000</span>
       {data.map((item) => (
         <OrderItem item={item}></OrderItem>
