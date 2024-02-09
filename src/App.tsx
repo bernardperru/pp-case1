@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
+import { FrontPage } from "./pages/Frontpage";
 import { NavBarLink } from "./components/Navbar/Navbar";
 import { NavBar } from "./components/Navbar/Navbar";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
 const routes: NavBarLink[] = [
   { path: "", title: "SERIER" },
@@ -20,6 +20,11 @@ function App() {
   return (
     <div>
       <NavBar links={routes}></NavBar>
+      <div>
+        <Routes>
+          <Route path="/" element={<FrontPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }

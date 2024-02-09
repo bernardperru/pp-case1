@@ -1,3 +1,3 @@
 export function FrontPage() {
-  return <div></div>;
+  return <div>VELKOMMEN TIL BRUGER</div>;
 }
