@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Api, BeerReponse } from "../Api";
+import { OrderList } from "../components/OrderList/OrderList";
+import { LatestOrderList } from "../components/LatestOrderList/LatestOrderList";
+import { FavoriteProductList } from "../components/FavoriteProductList/FavoriteProductList";
 
 export function FrontPage() {
   const [data, setData] = useState<BeerReponse[]>();
@@ -21,9 +24,9 @@ export function FrontPage() {
 
   return (
     <div className="pl-60">
-      {data.map((beer) => (
-        <div>{beer.name}</div>
-      ))}
+      <OrderList></OrderList>
+      <LatestOrderList></LatestOrderList>
+      <FavoriteProductList></FavoriteProductList>
     </div>
   );
 }
