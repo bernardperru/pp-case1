@@ -6,7 +6,7 @@ import { FavoriteProductList } from "../components/FavoriteProductList/FavoriteP
 import { useFetch } from "../hooks/useFetch";
 
 export function FrontPage() {
-  const { data, loading, error } = useFetch<BeerReponse>(
+  const { data, loading, error } = useFetch<Number>(
     "https://api.punkapi.com/v2/beers"
   );
 
