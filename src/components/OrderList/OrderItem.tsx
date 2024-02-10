@@ -7,25 +7,25 @@ type Props = {
 export function OrderItem({ item }: Props) {
   return (
     //fram48
-    <div className="flex items-center gap-[188px] p-0 bg-[#FFFFFF] h-[58px]">
+    <div className="flex items-center gap-[100px] bg-[#FFFFFF] h-[58px] p-2">
       {/*frame46*/}
-      <div className="flex items-start p-0 gap-[13px] w-[220px] isolate">
+      <div className="flex items-start p-0 gap-[13px] isolate">
         {/*picture*/}
-        <div className="rounded-[3px] w-[58px] h-[58px] bg-slate-500"></div>
+        <div className="rounded-[3px] w-[50px] h-[50px] bg-slate-500"></div>
         {/*frame33*/}
-        <div className="p-0">
+        <div className="p-0 truncate w-[150px]">
           <div className="uppercase font-medium text-[16px] pt-1 text-[#261F18]">
             {item.name}
           </div>
-          <div className="font-sans font-[400] text-[14px]  text-[#261F18]">
+          <div className="font-sans font-[400] text-[14px] text-[#261F18]">
             {item.id}
           </div>
         </div>
       </div>
       {/*frame45*/}
-      <div className="flex-row items-start p-0 isolate">
+      <div className=" p-0 isolate">
         {/*frame31*/}
-        <div className="flex items-start px-[20px] gap-[89px] py-[10px]">
+        <div className="flex items-end px-[20px] gap-[89px] py-[10px]">
           <div className="flex uppercase text-center font-[400] text-[14px] text-[#261F18]">
             {item.attenuation_level}
           </div>

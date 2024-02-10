@@ -26,50 +26,53 @@ export function OrderList() {
 
   return (
     //group11
-    <div className="w-[673px] h-[372px] left-[239px] top-[223px]">
+    <div className="">
       {/*frame 40*/}
-      <div className="w-[660px] h-[25px] left-[239px] top-[223px]">
+      <div className="">
         {/*frame 42*/}
-        <div className="flex justify-between items-center gap-[15px] w-[660px] h-[24px]">
+        <div className="flex place-content-between items-center w-[660px]">
           {/*frame 30*/}
-          <div className="flex items-center gap-3 w-[147px] h-[24px]">
+          <div className="flex items-center gap-3 ">
             <img
               className="w-[25px] h-[25px] "
               src="/icons/list1.svg"
               alt="Workflow"
             />
-            <div className="font-[Oswald] uppercase font-medium text-[16px] leading-[24px]">
+            <div className=" uppercase font-medium text-[16px]">
               Bestillingsliste
             </div>
           </div>
-          <div className="w-[138px] h-[23px] font-[Open Sans] text-[14px] underline leading-[23px] font-normal">
+          <div className="font-[Open Sans] text-[14px] underline">
             Gå til bestillingslisten
           </div>
         </div>
       </div>
       {/*group10*/}
-      <div className="w-[673px] h-[372px] left-[239px] top-[223px]">
+      <div className="py-2">
         {/*rectangle*/}
-        <div className="w-[672px] h-[310px] left-[240px] top-[269px] rounded-[10px] bg-[#F5F5F5] p-3">
-          <div className="flex gap-[490px]">
+        <div className="w-[672px] h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
+          <div className="flex place-content-between">
             {/*frame41*/}
-            <div className="flex items-start p-[3px] gap-[10px] bg-[#F1ECE6] rounded-[2px]  w-fit">
-              <div className="flex items-center font-[Open Sans] font-normal text-[12px] leading-[16px]">
-                12 produkter
+            <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
+              <div className="font-[Open Sans] text-[12px] truncate">
+                {data.length} produkter
               </div>
             </div>
             {/*frame50*/}
-            <div className="flex items-end p-[3px] gap-[10px] bg-[#F1ECE6] rounded-[2px] w-fit ">
-              <div className="flex items-center font-[Open Sans] font-normal text-[12px] leading-[16px] h-[16px]">
-                total: 400000
+            <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] max-w-[110px]">
+              <div className="font-[Open Sans] text-[12px] truncate">
+                total: 4000 dkk
               </div>
             </div>
           </div>
-          <div className="flex-col items-start p-0 gap-[7px]">
+          <div className="flex-col items-start py-2 gap-[7px]">
             {/* {data.map((item) => (
               <OrderItem item={item}></OrderItem>
             ))} */}
             <OrderItem item={data[0]}></OrderItem>
+            <OrderItem item={data[1]}></OrderItem>
+            <OrderItem item={data[2]}></OrderItem>
+            <OrderItem item={data[3]}></OrderItem>
           </div>
         </div>
       </div>

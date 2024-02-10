@@ -25,6 +25,7 @@ export function FrontPage() {
   console.log(loading);
   return (
     <div className="pl-60">
+      <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <OrderList></OrderList>
       <LatestOrderList></LatestOrderList>
       <FavoriteProductList></FavoriteProductList>
