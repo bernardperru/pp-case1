@@ -25,7 +25,8 @@ export function OrderList() {
   }
 
   return (
-    <div>
+    //group11
+    <div className="w-[673px] h-[372px] left-[239px] top-[223px]">
       {/*frame 40*/}
       <div className="w-[660px] h-[25px] left-[239px] top-[223px]">
         {/*frame 42*/}
@@ -46,23 +47,32 @@ export function OrderList() {
           </div>
         </div>
       </div>
-      <div className="absolute bg-[#F5F5F5] w-[672px] h-[310px] left-[240px] top-[269px] rounded-xl">
-        <span>12 produkter</span> <span>total: 400000</span>
-        {data.map((item) => (
-          <OrderItem item={item}></OrderItem>
-        ))}
+      {/*group10*/}
+      <div className="w-[673px] h-[372px] left-[239px] top-[223px]">
+        {/*rectangle*/}
+        <div className="w-[672px] h-[310px] left-[240px] top-[269px] rounded-[10px] bg-[#F5F5F5] p-3">
+          <div className="flex gap-[490px]">
+            {/*frame41*/}
+            <div className="flex items-start p-[3px] gap-[10px] bg-[#F1ECE6] rounded-[2px]  w-fit">
+              <div className="flex items-center font-[Open Sans] font-normal text-[12px] leading-[16px]">
+                12 produkter
+              </div>
+            </div>
+            {/*frame50*/}
+            <div className="flex items-end p-[3px] gap-[10px] bg-[#F1ECE6] rounded-[2px] w-fit ">
+              <div className="flex items-center font-[Open Sans] font-normal text-[12px] leading-[16px] h-[16px]">
+                total: 400000
+              </div>
+            </div>
+          </div>
+          <div className="flex-col items-start p-0 gap-[7px]">
+            {/* {data.map((item) => (
+              <OrderItem item={item}></OrderItem>
+            ))} */}
+            <OrderItem item={data[0]}></OrderItem>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
-// /* Rectangle 4 */
-
-// position: absolute;
-// width: 672px;
-// height: 310px;
-// left: 240px;
-// top: 269px;
-
-// background: #F5F5F5;
-// border-radius: 10px;
