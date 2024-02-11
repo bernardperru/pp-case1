@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Api, BeerReponse } from "../Api";
+import { Api, BeerReponse, FavoriteItem } from "../Api";
 import { OrderList } from "../components/OrderList/OrderList";
 import { LatestOrderList } from "../components/LatestOrderList/LatestOrderList";
 import { FavoriteProductList } from "../components/FavoriteProductList/FavoriteProductList";
 import { useFetch } from "../hooks/useFetch";
 
 export function FrontPage() {
-  const { data, loading, error } = useFetch<Number>(
+  const { data, loading, error } = useFetch<FavoriteItem[]>(
     "https://api.punkapi.com/v2/beers"
   );
 
@@ -26,9 +26,11 @@ export function FrontPage() {
   return (
     <div className="pl-60">
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
-      <OrderList></OrderList>
-      <LatestOrderList></LatestOrderList>
-      <FavoriteProductList></FavoriteProductList>
+      <div className="flex gap-[25px]">
+        <OrderList></OrderList>
+        <LatestOrderList></LatestOrderList>
+        <FavoriteProductList favoriteItems={data}></FavoriteProductList>
+      </div>
     </div>
   );
 }

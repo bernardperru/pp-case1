@@ -6,39 +6,24 @@ type Props = {
 
 export function OrderItem({ item }: Props) {
   return (
-    //fram48
-    <div className="flex items-center gap-[100px] bg-[#FFFFFF] h-[58px] p-2">
-      {/*frame46*/}
-      <div className="flex items-start p-0 gap-[13px] isolate">
-        {/*picture*/}
+    <li className="flex place-content-between bg-[#FFFFFF] h-[58px] p-2">
+      <div className="flex items-start gap-[13px]">
         <div className="rounded-[3px] w-[50px] h-[50px] bg-slate-500"></div>
-        {/*frame33*/}
-        <div className="p-0 truncate w-[150px]">
-          <div className="uppercase font-medium text-[16px] pt-1 text-[#261F18]">
+        <div className="p-0 truncate w-[200px]">
+          <p className="uppercase font-medium text-[16px] pt-1 text-[#261F18]">
             {item.name}
-          </div>
-          <div className="font-sans font-[400] text-[14px] text-[#261F18]">
+          </p>
+          <p className="font-sans font-[400] text-[14px] text-[#261F18]">
             {item.id}
-          </div>
+          </p>
         </div>
       </div>
-      {/*frame45*/}
-      <div className=" p-0 isolate">
-        {/*frame31*/}
-        <div className="flex items-end px-[20px] gap-[89px] py-[10px]">
-          <div className="flex uppercase text-center font-[400] text-[14px] text-[#261F18]">
-            {item.attenuation_level}
-          </div>
-          <div className="flex uppercase text-center font-[400] text-[14px] text-[#261F18]">
-            {item.first_brewed}
-          </div>
-          <div className="flex uppercase text-center font-[400] text-[14px] text-[#261F18]">
-            {item.ph}
-          </div>
-        </div>
-        <div className=""></div>
+      <div className="flex gap-[60px] py-[10px] px-[20px] font-[400] text-[14px] text-[#261F18]">
+        <p className="w-4">{item.attenuation_level}</p>
+        <p className="w-10">{item.first_brewed}</p>
+        <p className="w-4">{item.ph}</p>
       </div>
-    </div>
+    </li>
   );
 }
 
