@@ -3,6 +3,7 @@ import { NavBarLink } from "./components/Navbar/Navbar";
 import { NavBar } from "./components/Navbar/Navbar";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { BottomBar } from "./components/BottomBar/BottomBar";
 
 const routes: NavBarLink[] = [
   { path: "", title: "SERIER" },
@@ -19,12 +20,13 @@ const routes: NavBarLink[] = [
 function App() {
   return (
     <div>
-      <NavBar links={routes}></NavBar>
+      <NavBar links={routes} />
       <div>
         <Routes>
           <Route path="/" element={<FrontPage />} />
         </Routes>
       </div>
+      <BottomBar />
     </div>
   );
 }

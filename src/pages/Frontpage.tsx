@@ -33,16 +33,13 @@ export function FrontPage() {
     return <div></div>;
   }
 
-  console.log(loading);
   return (
     <div className="pl-60">
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
-        <OrderList orderList={data}></OrderList>
-        {latest && <LatestOrderList latestOrderList={latest}></LatestOrderList>}
-        {favorites && (
-          <FavoriteProductList favoriteItems={favorites}></FavoriteProductList>
-        )}
+        {data && <OrderList orderList={data} />}
+        {latest && <LatestOrderList latestOrderList={latest} />}
+        {favorites && <FavoriteProductList favoriteItems={favorites} />}
       </div>
     </div>
   );
