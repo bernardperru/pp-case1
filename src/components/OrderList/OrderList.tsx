@@ -3,7 +3,11 @@ import { Api, OrderListItem } from "../../Api";
 import { OrderItem } from "./OrderItem";
 import { useFetch } from "../../hooks/useFetch";
 
-export function OrderList() {
+type Props = {
+  orderList: OrderListItem[];
+};
+
+export function OrderList({ orderList }: Props) {
   const [listLength, setListLength] = useState(4);
   const { data, loading, error } = useFetch<OrderListItem[]>(
     "https://api.punkapi.com/v2/beers"
@@ -31,10 +35,10 @@ export function OrderList() {
 
   return (
     <div className="w-[672px] h-fit">
-      <div className="flex place-content-between items-center w-[660px]">
-        <div className="flex items-center gap-3 ">
+      <div className="flex place-content-between items-center">
+        <div className="flex items-center gap-3 pb-2">
           <img
-            className="w-[25px] h-[25px] "
+            className="w-[25px] h-[25px]"
             src="/icons/list1.svg"
             alt="Workflow"
           />
@@ -44,7 +48,7 @@ export function OrderList() {
           Gå til bestillingslisten
         </p>
       </div>
-      <div className="py-2 w-[672px] min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
+      <div className="w-[672px] min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
         <div className="flex place-content-between">
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
             <p className="font-[Open Sans] text-[12px] truncate">
@@ -63,6 +67,7 @@ export function OrderList() {
           ))}
         </ul>
       </div>
+
       <div className="flex place-content-center">
         {listLength === 4 ? (
           <button

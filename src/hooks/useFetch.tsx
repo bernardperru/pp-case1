@@ -29,27 +29,3 @@ export function useFetch<T>(url: string) {
 
   return response;
 }
-
-// src/hooks/useStarshipByUrlService.ts
-
-// import { useEffect, useState } from 'react';
-// import { Service } from '../types/Service'; // Define your Service type
-// import { Starship } from '../types/Starship'; // Define your Starship interface
-
-// const useStarshipByUrlService = (url: string) => {
-//   const [result, setResult] = useState<Service<Starship>>({ status: 'loading' });
-
-//   useEffect(() => {
-//     if (url) {
-//       setResult({ status: 'loading' });
-//       fetch(url)
-//         .then(response => response.json())
-//         .then(response => setResult({ status: 'loaded', payload: response }))
-//         .catch(error => setResult({ status: 'error', error }));
-//     }
-//   }, [url]);
-
-//   return result;
-// };
-
-// export default useStarshipByUrlService;

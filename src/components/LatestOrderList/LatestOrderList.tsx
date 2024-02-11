@@ -1,8 +1,11 @@
-import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { LatestOrderItem, LatestOrderListItem } from "./LatestOrderItem";
 
-export function LatestOrderList() {
+type Props = {
+  latestOrderList: LatestOrderListItem[];
+};
+
+export function LatestOrderList({ latestOrderList }: Props) {
   const { data, loading, error } = useFetch<LatestOrderListItem[]>(
     "https://api.punkapi.com/v2/beers"
   );
@@ -22,7 +25,7 @@ export function LatestOrderList() {
   return (
     <div className="w-[350px]">
       <div className="flex place-content-between items-center">
-        <div className="flex items-center gap-3 ">
+        <div className="flex items-center gap-3">
           <img
             className="w-[25px] h-[25px] "
             src="/icons/latestorder.svg"
