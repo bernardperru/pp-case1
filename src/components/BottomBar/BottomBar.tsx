@@ -33,20 +33,27 @@ const boxes: BoxProps[] = [
 
 export function BottomBar() {
   return (
-    <div className="h-[351px] bg-[#C4C9C1] gap-[80px]">
-      <p className="flex items-center justify-center">
-        Dine forhandler ressourcer for DYLAN puslepude
-      </p>
-      <div className="h-[351px] gap-[80px] flex items-center justify-center">
-        {boxes.map((box) => (
-          <Box
-            buttonIcon={box.buttonIcon}
-            buttonText={box.buttonText}
-            icon={box.icon}
-            interact={box.interact}
-            title={box.title}
-          />
-        ))}
+    <div className="h-[351px] bg-[#C4C9C1] flex justify-center items-center">
+      <div className="flex flex-col">
+        <div className="flex">
+          <p className="mr-1 text-[22px] font-[400px] font-[Oswald]">
+            Dine forhandler ressourcer for
+          </p>{" "}
+          <p className="text-[22px]  font-[Oswald] font-black">
+            DYLAN puslepude
+          </p>
+        </div>
+        <div className="gap-[133px] pt-3 flex">
+          {boxes.map((box) => (
+            <Box
+              buttonIcon={box.buttonIcon}
+              buttonText={box.buttonText}
+              icon={box.icon}
+              interact={box.interact}
+              title={box.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -70,13 +77,3 @@ export function BottomBar() {
 // text-align: center;
 
 // color: #261F18;
-
-/* Rectangle 1 */
-
-// position: absolute;
-// width: 1920px;
-// height: 351px;
-// left: -1px;
-// top: 1016px;
-
-// background: #C4C9C1;

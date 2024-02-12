@@ -14,11 +14,11 @@ export function Box({
   title,
 }: BoxProps) {
   return (
-    <div className="w-[180px] h-[168px] bg-white rounded-[10px] p-3">
+    <div className="flex flex-col w-[180px] h-[168px] bg-white rounded-[10px] p-3 gap-4">
       <img className="w-[32px] h-[32px] " src={icon} alt="Workflow" />
-      <p className=" text-[22px] font-normal">{title}</p>
+      <p className=" text-[20px] truncate">{title}</p>
       <button
-        className="bg-[#C4C9C1] rounded-[24px] w-[88px] h-[33px] flex place-items-center justify-center gap-2"
+        className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
         onClick={interact}
       >
         <p className="text-[14px] font-normal">{buttonText}</p>

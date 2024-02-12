@@ -11,7 +11,9 @@ export function FrontPage() {
     data: favorites,
     loading: loadingFavorites,
     error: errorFavorites,
-  } = useFetch<FavoriteItem[]>("https://api.punkapi.com/v2/beers");
+  } = useFetch<FavoriteItem[]>(
+    "https://api.punkapi.com/v2/beers?page=1&per_page=5"
+  );
   const {
     data: latest,
     loading: loadingLatest,
