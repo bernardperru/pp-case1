@@ -61,29 +61,6 @@ const kampagner: KampagneProps[] = [
     },
   },
 ];
-/* Frame 41 */
-
-// /* Auto layout */
-// display: flex;
-// flex-direction: row;
-// align-items: center;
-// padding: 3px 6px;
-// gap: 5px;
-
-// /* Oktober 2022 */
-
-// width: 77px;
-// height: 16px;
-
-// font-family: 'Open Sans';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 12px;
-// line-height: 16px;
-// display: flex;
-// align-items: center;
-
-// color: #261F18;
 
 export function FrontPage() {
   const {
