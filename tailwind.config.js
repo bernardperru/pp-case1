@@ -41,6 +41,14 @@ module.exports = {
     backdropSaturate: ({ theme }) => theme("saturate"),
     backdropSepia: ({ theme }) => theme("sepia"),
     backgroundColor: ({ theme }) => theme("colors"),
+    extend: {
+      backgroundImage: (theme) => ({
+        pillowpattern: "url('/public/img/pillow.png')",
+        sengeogskabe: "url('/public/img/sengeogskabe.png')",
+        alletekstiler: "url('/public/img/alletekstiler.png')",
+        wallypusleborde: "url('/public/img/wallypusleborde.png')",
+      }),
+    },
     backgroundImage: {
       none: "none",
       "gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",

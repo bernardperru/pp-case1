@@ -10,7 +10,13 @@ type Props = {
 
 export function LatestOrderItem({ item, color }: Props) {
   return (
-    <div className={color ? "flex gap-[60px] bg-white" : "flex gap-[60px]"}>
+    <div
+      className={
+        color
+          ? "flex gap-[60px] bg-white p-[5px] h-[33px]"
+          : "flex gap-[60px] p-[5px]  h-[33px]"
+      }
+    >
       <div className="flex gap-[20px]">
         <div className="w-16 uppercase text-center font-[400] text-[14px] text-[#261F18]">
           {item.first_brewed}

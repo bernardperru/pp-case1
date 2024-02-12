@@ -8,6 +8,7 @@ type Props = {
 };
 
 export function OrderList({ orderList }: Props) {
+  let fav = false;
   const [listLength, setListLength] = useState(4);
   const { data, loading, error } = useFetch<OrderListItem[]>(
     "https://api.punkapi.com/v2/beers"
@@ -19,6 +20,11 @@ export function OrderList({ orderList }: Props) {
       return array.slice(0, amount);
     }
     return [];
+  };
+
+  const switchFavorite = () => {
+    fav = !fav;
+    return fav;
   };
 
   if (loading) {
@@ -63,7 +69,7 @@ export function OrderList({ orderList }: Props) {
         </div>
         <ul className="py-2">
           {take(listLength).map((item) => (
-            <OrderItem item={item}></OrderItem>
+            <OrderItem item={item} favorite={switchFavorite()}></OrderItem>
           ))}
         </ul>
       </div>

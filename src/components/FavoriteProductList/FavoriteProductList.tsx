@@ -1,4 +1,8 @@
-import { FavoriteItem, FavoriteProductItem } from "./FavoriteProductItem";
+import {
+  FavoriteItem,
+  FavoriteProductItem,
+  FavItemProps,
+} from "./FavoriteProductItem";
 
 type Props = {
   favoriteItems: FavoriteItem[];

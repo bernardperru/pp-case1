@@ -6,10 +6,6 @@ type Props = {
 };
 
 export function LatestOrderList({ latestOrderList }: Props) {
-  const { data, loading, error } = useFetch<LatestOrderListItem[]>(
-    "https://api.punkapi.com/v2/beers"
-  );
-
   let colorSwitch = true;
 
   const getColor = () => {
@@ -18,7 +14,7 @@ export function LatestOrderList({ latestOrderList }: Props) {
     return color;
   };
 
-  if (!data) {
+  if (!latestOrderList) {
     return <div></div>;
   }
 
@@ -40,7 +36,7 @@ export function LatestOrderList({ latestOrderList }: Props) {
       <div className="py-2">
         <div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
           <div className="flex-col items-start py-2 gap-[7px]">
-            {data.map((item) => (
+            {latestOrderList.map((item) => (
               <LatestOrderItem item={item} color={getColor()}></LatestOrderItem>
             ))}
           </div>

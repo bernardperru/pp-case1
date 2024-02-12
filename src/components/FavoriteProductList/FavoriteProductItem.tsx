@@ -3,11 +3,11 @@ export type FavoriteItem = {
   name: string;
 };
 
-type Props = {
+export type FavItemProps = {
   item: FavoriteItem;
 };
 
-export function FavoriteProductItem({ item }: Props) {
+export function FavoriteProductItem({ item }: FavItemProps) {
   return (
     <div className="flex items-start gap-[13px]">
       <div className="rounded-[3px] w-[50px] h-[50px] bg-slate-500"></div>
