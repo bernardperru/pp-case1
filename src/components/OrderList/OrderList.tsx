@@ -8,7 +8,6 @@ type Props = {
 };
 
 export function OrderList({ orderList }: Props) {
-  let fav = false;
   const [listLength, setListLength] = useState(4);
   const { data, loading, error } = useFetch<OrderListItem[]>(
     "https://api.punkapi.com/v2/beers"
@@ -22,9 +21,19 @@ export function OrderList({ orderList }: Props) {
     return [];
   };
 
+  let fav = false;
+
   const switchFavorite = () => {
     fav = !fav;
     return fav;
+  };
+
+  let colorSwitch = true;
+
+  const getColor = () => {
+    const color = colorSwitch;
+    colorSwitch = !colorSwitch;
+    return color;
   };
 
   if (loading) {
@@ -67,9 +76,13 @@ export function OrderList({ orderList }: Props) {
             </p>
           </div>
         </div>
-        <ul className="py-2">
+        <ul className="pt-2 flex flex-col gap-2">
           {take(listLength).map((item) => (
-            <OrderItem item={item} favorite={switchFavorite()}></OrderItem>
+            <OrderItem
+              color={getColor()}
+              item={item}
+              favorite={switchFavorite()}
+            ></OrderItem>
           ))}
         </ul>
       </div>

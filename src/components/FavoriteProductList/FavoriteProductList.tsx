@@ -26,7 +26,7 @@ export function FavoriteProductList({ favoriteItems }: Props) {
       </div>
       <div className="py-2">
         <div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
-          <div className="flex-col items-start py-2 gap-[7px]">
+          <div className="flex flex-col items-start py-2 gap-[7px]">
             {favoriteItems.map((item) => (
               <FavoriteProductItem item={item}></FavoriteProductItem>
             ))}
