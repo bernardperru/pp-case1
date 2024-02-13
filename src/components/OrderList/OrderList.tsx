@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
-import { Api, OrderListItem } from "../../Api";
-import { OrderItem } from "./OrderItem";
-import { useFetch } from "../../hooks/useFetch";
+import { useState } from "react";
+import { OrderListItem } from "./OrderListItem";
+import { Response } from "../../types";
+import { Product } from "../../hooks/useGetOrder";
 
-type Props = {
-  orderList: OrderListItem[];
-};
-
-export function OrderList({ orderList }: Props) {
+export function OrderList({ data, loading, error }: Response<Product>) {
   const [listLength, setListLength] = useState(4);
-  const { data, loading, error } = useFetch<OrderListItem[]>(
-    "https://api.punkapi.com/v2/beers"
-  );
 
-  const take = (amount: number): OrderListItem[] => {
+  const take = (amount: number): Product[] => {
     if (data) {
       const array = [...data];
       return array.slice(0, amount);
     }
+
     return [];
   };
 
@@ -37,7 +31,7 @@ export function OrderList({ orderList }: Props) {
   };
 
   if (loading) {
-    return <>loading</>;
+    return <div>loading</div>;
   }
 
   if (error) {
@@ -57,7 +51,7 @@ export function OrderList({ orderList }: Props) {
             src="/icons/list1.svg"
             alt="Workflow"
           />
-          <p className=" uppercase font-medium text-[16px]">Bestillingsliste</p>
+          <p className="uppercase font-medium text-[16px]">Bestillingsliste</p>
         </div>
         <p className="font-[Open Sans] text-[14px] underline">
           Gå til bestillingslisten
@@ -78,11 +72,11 @@ export function OrderList({ orderList }: Props) {
         </div>
         <ul className="pt-2 flex flex-col gap-2">
           {take(listLength).map((item) => (
-            <OrderItem
+            <OrderListItem
               color={getColor()}
               item={item}
               favorite={switchFavorite()}
-            ></OrderItem>
+            ></OrderListItem>
           ))}
         </ul>
       </div>

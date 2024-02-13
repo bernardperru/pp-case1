@@ -1,27 +1,29 @@
 import { useState } from "react";
-import {
-  FavoriteItem,
-  FavoriteProductItem,
-  FavItemProps,
-} from "./FavoriteProductItem";
+import { FavoriteListItem } from "./FavoriteListItem";
+import { Response } from "../../types";
+import { FavoriteItem } from "../../hooks/useGetFavorites";
 
-type Props = {
-  favoriteItems: FavoriteItem[];
-  interact: () => void;
-};
-
-export function FavoriteList({ favoriteItems }: Props) {
+export function FavoriteList(
+  { data, error, loading }: Response<FavoriteItem>,
+  addToOrder: (id: number) => void
+) {
   const [edit, setEdit] = useState(false);
-  const [list, setList] = useState(favoriteItems);
+  // const [list, setList] = useState();
 
-  const removeFromFavorites = (itemToBeRemoved: FavoriteItem) => {
-    setList(list.filter((item) => item.id !== itemToBeRemoved.id));
-    //should make a call to the api also
-  };
+  // const removeFromFavorites = (itemToBeRemoved: FavoriteItem) => {
+  //   if (list) {
+  //     setList(list.filter((item) => item.id !== itemToBeRemoved.id));
+  //   }
+  //   //should make a call to the api also
+  // };
 
-  const addToOrder = (itemToBeRemoved: FavoriteItem) => {
-    //should increase the orderlist
-  };
+  // if (!list) {
+  //   return <></>;
+  // }
+
+  if (!data) {
+    return <div></div>;
+  }
 
   return (
     <div className="w-[350px]">
@@ -55,13 +57,13 @@ export function FavoriteList({ favoriteItems }: Props) {
       <div className="py-2">
         <div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
           <div className="flex flex-col items-start py-2 gap-[7px]">
-            {list.map((item) => (
-              <FavoriteProductItem
+            {data.map((item) => (
+              <FavoriteListItem
                 item={item}
                 edit={edit}
-                remove={removeFromFavorites}
+                remove={() => {}}
                 add={addToOrder}
-              ></FavoriteProductItem>
+              ></FavoriteListItem>
             ))}
           </div>
         </div>

@@ -1,14 +1,11 @@
-export type LatestOrderListItem = {
-  first_brewed: string;
-  attenuation_level: number;
-};
+import { Product } from "../../hooks/useGetOrder";
 
 type Props = {
-  item: LatestOrderListItem;
+  item: Product;
   color: boolean;
 };
 
-export function LatestOrderItem({ item, color }: Props) {
+export function OldOrderItem({ item, color }: Props) {
   return (
     <div
       className={
@@ -34,25 +31,3 @@ export function LatestOrderItem({ item, color }: Props) {
     </div>
   );
 }
-
-// /* #4134534 */
-
-// width: 66px;
-// height: 19px;
-
-// font-family: 'Open Sans';
-// font-style: normal;
-// font-weight: 600;
-// font-size: 14px;
-// line-height: 19px;
-// /* identical to box height */
-// display: flex;
-// align-items: center;
-// text-transform: uppercase;
-
-// color: #261F18;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;

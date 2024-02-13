@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Api, BeerReponse, FavoriteItem, OrderListItem } from "../Api";
 import { OrderList } from "../components/OrderList/OrderList";
-import { LatestOrderList } from "../components/LatestOrderList/LatestOrderList";
+import { OldOrders } from "../components/LatestOrderList/OldOrders";
 import { FavoriteList } from "../components/FavoriteProductList/FavoriteList";
-import { useFetch } from "../hooks/useFetch";
-import { LatestOrderListItem } from "../components/LatestOrderList/LatestOrderItem";
+import { useGetOrder } from "../hooks/useGetOrder";
+import { useGetFavorites } from "../hooks/useGetFavorites";
+import { useGetOldOrders } from "../hooks/useGetOldOrders";
+
 import {
   KampagneCard,
   KampagneProps,
@@ -23,6 +23,7 @@ const kampagner: KampagneProps[] = [
         </div>
       );
     },
+    background: "bg-sengeogskabe",
   },
   {
     title: "wally pusleborde",
@@ -41,6 +42,7 @@ const kampagner: KampagneProps[] = [
         </div>
       );
     },
+    background: " bg-wallypusleborde",
   },
   {
     title: "Alle tekstiler",
@@ -59,72 +61,47 @@ const kampagner: KampagneProps[] = [
         </div>
       );
     },
+    background: " bg-alletekstiler",
   },
 ];
 
 export function FrontPage() {
-  const {
-    data: favorites,
-    loading: loadingFavorites,
-    error: errorFavorites,
-  } = useFetch<FavoriteItem[]>(
-    "https://api.punkapi.com/v2/beers?page=1&per_page=5"
-  );
-  const {
-    data: latest,
-    loading: loadingLatest,
-    error: errorLatest,
-  } = useFetch<LatestOrderListItem[]>(
-    "https://api.punkapi.com/v2/beers?page=1&per_page=7"
-  );
-  const { data, loading, error } = useFetch<OrderListItem[]>(
-    "https://api.punkapi.com/v2/beers"
-  );
+  const favorites = useGetFavorites();
+  const oldOrders = useGetOldOrders();
+  const order = useGetOrder();
 
-  if (loading) {
-    return <>loading</>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (!data) {
-    return <div></div>;
-  }
+  const addToOrder = (id: number) => {};
 
   return (
     <div className="pl-60">
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
-        {data && <OrderList orderList={data} />}
-        {latest && <LatestOrderList latestOrderList={latest} />}
-        {favorites && (
-          <FavoriteList favoriteItems={favorites} interact={() => {}} />
-        )}
+        <OrderList
+          data={order.data}
+          loading={order.loading}
+          error={order.error}
+        />
+        <OldOrders
+          data={oldOrders.data}
+          loading={oldOrders.loading}
+          error={oldOrders.error}
+        />
+        <FavoriteList
+          data={favorites.data}
+          loading={favorites.loading}
+          error={favorites.error}
+        />
       </div>
       <div className="flex gap-6 py-4">
-        <div className="w-[288px] h-[310px] bg-sengeogskabe">
-          <KampagneCard
-            interact={kampagner[0].interact}
-            renderDuration={kampagner[0].renderDuration}
-            title={kampagner[0].title}
-          ></KampagneCard>
-        </div>
-        <div className="w-[288px] h-[310px] bg-wallypusleborde">
-          <KampagneCard
-            interact={kampagner[1].interact}
-            renderDuration={kampagner[1].renderDuration}
-            title={kampagner[1].title}
-          ></KampagneCard>{" "}
-        </div>
-        <div className="w-[288px] h-[310px] bg-alletekstiler">
-          <KampagneCard
-            interact={kampagner[2].interact}
-            renderDuration={kampagner[2].renderDuration}
-            title={kampagner[2].title}
-          ></KampagneCard>{" "}
-        </div>
+        {kampagner.map((kampagne) => (
+          <div className={"w-[288px] h-[310px] " + kampagne.background}>
+            <KampagneCard
+              interact={kampagne.interact}
+              renderDuration={kampagne.renderDuration}
+              title={kampagne.title}
+            ></KampagneCard>
+          </div>
+        ))}
       </div>
     </div>
   );

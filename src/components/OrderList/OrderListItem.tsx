@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { OrderListItem } from "../../Api";
+import { Product } from "../../hooks/useGetOrder";
 
 type Props = {
-  item: OrderListItem;
+  item: Product;
   favorite: boolean;
   color: boolean;
 };
 
-export function OrderItem({ item, favorite, color }: Props) {
+export function OrderListItem({ item, favorite, color }: Props) {
   const [favoriteItem, setFavoriteItem] = useState(favorite);
 
   return (

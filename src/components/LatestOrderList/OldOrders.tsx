@@ -1,11 +1,8 @@
-import { useFetch } from "../../hooks/useFetch";
-import { LatestOrderItem, LatestOrderListItem } from "./LatestOrderItem";
+import { Product } from "../../hooks/useGetOrder";
+import { Response } from "../../types";
+import { OldOrderItem } from "./OldOrderItem";
 
-type Props = {
-  latestOrderList: LatestOrderListItem[];
-};
-
-export function LatestOrderList({ latestOrderList }: Props) {
+export function OldOrders({ data, loading, error }: Response<Product>) {
   let colorSwitch = true;
 
   const getColor = () => {
@@ -14,7 +11,7 @@ export function LatestOrderList({ latestOrderList }: Props) {
     return color;
   };
 
-  if (!latestOrderList) {
+  if (!data) {
     return <div></div>;
   }
 
@@ -35,8 +32,8 @@ export function LatestOrderList({ latestOrderList }: Props) {
       </div>
       <div className="py-2">
         <div className="flex flex-col gap-2 min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-5">
-          {latestOrderList.map((item) => (
-            <LatestOrderItem item={item} color={getColor()}></LatestOrderItem>
+          {data.map((item) => (
+            <OldOrderItem item={item} color={getColor()}></OldOrderItem>
           ))}
         </div>
       </div>
