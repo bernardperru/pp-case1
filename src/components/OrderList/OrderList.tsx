@@ -66,7 +66,7 @@ export function OrderList({ orderList }: Props) {
       <div className="w-[672px] min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
         <div className="flex place-content-between">
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
-            <p className="font-[Open Sans] text-[12px] truncate">
+            <p className="font-['Open Sans'] text-[12px] truncate">
               {data.length} produkter
             </p>
           </div>

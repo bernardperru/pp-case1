@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Api, BeerReponse, FavoriteItem, OrderListItem } from "../Api";
 import { OrderList } from "../components/OrderList/OrderList";
 import { LatestOrderList } from "../components/LatestOrderList/LatestOrderList";
-import { FavoriteProductList } from "../components/FavoriteProductList/FavoriteProductList";
+import { FavoriteList } from "../components/FavoriteProductList/FavoriteList";
 import { useFetch } from "../hooks/useFetch";
 import { LatestOrderListItem } from "../components/LatestOrderList/LatestOrderItem";
 import {
@@ -99,7 +99,9 @@ export function FrontPage() {
       <div className="flex gap-[25px]">
         {data && <OrderList orderList={data} />}
         {latest && <LatestOrderList latestOrderList={latest} />}
-        {favorites && <FavoriteProductList favoriteItems={favorites} />}
+        {favorites && (
+          <FavoriteList favoriteItems={favorites} interact={() => {}} />
+        )}
       </div>
       <div className="flex gap-6 py-4">
         <div className="w-[288px] h-[310px] bg-sengeogskabe">
