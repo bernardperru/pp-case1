@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { Response } from "../types";
-
-export type FavoriteItem = {
-  id: number;
-  name: string;
-};
+import { Product } from "./useGetOrder";
 
 export function useGetFavorites() {
-  const [response, setResponse] = useState<Response<FavoriteItem>>({
+  const [response, setResponse] = useState<Response<Product>>({
     data: null,
     error: "",
     loading: true,

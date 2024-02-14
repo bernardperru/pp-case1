@@ -1,13 +1,11 @@
-import { FavoriteItem } from "../../hooks/useGetFavorites";
+import { Product } from "../../hooks/useGetOrder";
 
 export type FavItemProps = {
-  item: FavoriteItem;
+  item: Product;
   edit: boolean;
-  remove: (item: FavoriteItem) => void;
-  add: (id: number) => void;
 };
 
-export function FavoriteListItem({ item, edit, add, remove }: FavItemProps) {
+export function FavoriteListItem({ item, edit }: FavItemProps) {
   return (
     <div className="flex items-start gap-[13px]">
       <div className="rounded-[3px] w-[50px] h-[50px] bg-pillowpattern bg-contain" />
@@ -22,7 +20,7 @@ export function FavoriteListItem({ item, edit, add, remove }: FavItemProps) {
       {edit ? (
         <button
           className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
-          onClick={() => remove(item)}
+          onClick={() => {}}
         >
           <img
             className="w-[20px] h-[20px]"
@@ -33,7 +31,7 @@ export function FavoriteListItem({ item, edit, add, remove }: FavItemProps) {
       ) : (
         <button
           className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
-          onClick={() => add(item.id)}
+          onClick={() => {}}
         >
           <img
             className="w-[20px] h-[20px]"

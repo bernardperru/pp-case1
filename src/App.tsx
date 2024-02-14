@@ -4,30 +4,29 @@ import { NavBar } from "./components/Navbar/Navbar";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { BottomBar } from "./components/BottomBar/BottomBar";
+import { CartProvider } from "./context/CartContext";
 
 const routes: NavBarLink[] = [
-  { path: "", title: "SERIER" },
-  { path: "", title: "VUGGE" },
-  { path: "", title: "BØRNESENGE" },
-  { path: "", title: "OPBEVARING" },
-  { path: "", title: "HØJSTOL" },
-  { path: "", title: "PUSLE" },
-  { path: "", title: "TEKSTILER" },
-  { path: "", title: "TILBEHØR" },
-  { path: "", title: "RESERVEDELE" },
+  { path: "/serier", title: "SERIER" },
+  { path: "/vugge", title: "VUGGE" },
+  { path: "/børnesenge", title: "BØRNESENGE" },
+  { path: "/opbevaring", title: "OPBEVARING" },
+  { path: "/højstol", title: "HØJSTOL" },
+  { path: "/pusle", title: "PUSLE" },
+  { path: "/tekstiler", title: "TEKSTILER" },
+  { path: "/tilbehør", title: "TILBEHØR" },
+  { path: "/reservedele", title: "RESERVEDELE" },
 ];
 
 function App() {
   return (
-    <div>
+    <CartProvider>
       <NavBar links={routes} />
-      <div>
-        <Routes>
-          <Route path="/" element={<FrontPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+      </Routes>
       <BottomBar />
-    </div>
+    </CartProvider>
   );
 }
 

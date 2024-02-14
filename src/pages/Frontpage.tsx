@@ -6,11 +6,11 @@ import { useGetFavorites } from "../hooks/useGetFavorites";
 import { useGetOldOrders } from "../hooks/useGetOldOrders";
 
 import {
-  KampagneCard,
-  KampagneProps,
-} from "../components/Kampagne/KampagneCard";
+  CampaignCard,
+  CampaignProps,
+} from "../components/Campaign/CampaignCard";
 
-const kampagner: KampagneProps[] = [
+const kampagner: CampaignProps[] = [
   {
     title: "Classic senge og skabe",
     interact: () => {},
@@ -68,7 +68,6 @@ const kampagner: KampagneProps[] = [
 export function FrontPage() {
   const favorites = useGetFavorites();
   const oldOrders = useGetOldOrders();
-  const order = useGetOrder();
 
   const addToOrder = (id: number) => {};
 
@@ -76,30 +75,22 @@ export function FrontPage() {
     <div className="pl-60">
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
-        <OrderList
-          data={order.data}
-          loading={order.loading}
-          error={order.error}
-        />
+        <OrderList />
         <OldOrders
           data={oldOrders.data}
           loading={oldOrders.loading}
           error={oldOrders.error}
         />
-        <FavoriteList
-          data={favorites.data}
-          loading={favorites.loading}
-          error={favorites.error}
-        />
+        <FavoriteList />
       </div>
       <div className="flex gap-6 py-4">
         {kampagner.map((kampagne) => (
           <div className={"w-[288px] h-[310px] " + kampagne.background}>
-            <KampagneCard
+            <CampaignCard
               interact={kampagne.interact}
               renderDuration={kampagne.renderDuration}
               title={kampagne.title}
-            ></KampagneCard>
+            ></CampaignCard>
           </div>
         ))}
       </div>

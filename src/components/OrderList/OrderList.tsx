@@ -2,13 +2,15 @@ import { useState } from "react";
 import { OrderListItem } from "./OrderListItem";
 import { Response } from "../../types";
 import { Product } from "../../hooks/useGetOrder";
+import { CartItem, useCart } from "../../context/CartContext";
 
-export function OrderList({ data, loading, error }: Response<Product>) {
+export function OrderList() {
   const [listLength, setListLength] = useState(4);
+  const { getItemQuantity, cartItems } = useCart();
 
-  const take = (amount: number): Product[] => {
-    if (data) {
-      const array = [...data];
+  const take = (amount: number): CartItem[] => {
+    if (cartItems) {
+      const array = [...cartItems];
       return array.slice(0, amount);
     }
 
@@ -30,15 +32,7 @@ export function OrderList({ data, loading, error }: Response<Product>) {
     return color;
   };
 
-  if (loading) {
-    return <div>loading</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (!data) {
+  if (!cartItems) {
     return <div></div>;
   }
 
@@ -61,7 +55,7 @@ export function OrderList({ data, loading, error }: Response<Product>) {
         <div className="flex place-content-between">
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
             <p className="font-['Open Sans'] text-[12px] truncate">
-              {data.length} produkter
+              {cartItems.length} produkter
             </p>
           </div>
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] max-w-[110px]">

@@ -15,7 +15,7 @@ export function useGetOrder() {
     error: "",
     loading: true,
   });
-  const url = "https://api.punkapi.com/v2/beers";
+  const url = "https://api.punkapi.com/v2/beers?page=1&per_page=7";
 
   useEffect(() => {
     const get = async () => {

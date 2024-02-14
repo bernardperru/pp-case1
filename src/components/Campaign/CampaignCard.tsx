@@ -1,15 +1,15 @@
-export type KampagneProps = {
+export type CampaignProps = {
   renderDuration: () => JSX.Element;
   title: string;
   interact: () => void;
   background?: string;
 };
 
-export function KampagneCard({
+export function CampaignCard({
   interact,
   renderDuration,
   title,
-}: KampagneProps) {
+}: CampaignProps) {
   return (
     <div className="w-[288px] h-[310px] px-[6px] py-[18px] flex flex-col">
       <div className="rounded-[10px]">{renderDuration()}</div>
