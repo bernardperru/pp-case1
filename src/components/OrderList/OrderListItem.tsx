@@ -7,7 +7,8 @@ type Props = {
 };
 
 export function OrderListItem({ item, color }: Props) {
-  const { addFavoriteItem, isFavorite, removeFavoriteItem } = useCart();
+  const { addFavoriteItem, isFavorite, removeFavoriteItem, getItemQuantity } =
+    useCart();
   return (
     <li
       className={
@@ -48,7 +49,7 @@ export function OrderListItem({ item, color }: Props) {
         </div>
       </div>
       <div className="flex gap-[60px] font-[400] text-[14px] text-[#261F18] items-center justify-center">
-        <p className="w-4">{item.product.attenuation_level}</p>
+        <p className="w-4">{getItemQuantity(item.product.id)}</p>
         <p className="w-10">{item.product.first_brewed}</p>
         <p className="w-4">{item.product.ph}</p>
       </div>

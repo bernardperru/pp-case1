@@ -6,7 +6,7 @@ import { CartItem, useCart } from "../../context/CartContext";
 
 export function OrderList() {
   const [listLength, setListLength] = useState(4);
-  const { getItemQuantity, cartItems } = useCart();
+  const { getItemQuantity, cartItems, cartTotal, cartQuantity } = useCart();
 
   const take = (amount: number): CartItem[] => {
     if (cartItems) {
@@ -55,12 +55,12 @@ export function OrderList() {
         <div className="flex place-content-between">
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
             <p className="font-['Open Sans'] text-[12px] truncate">
-              {cartItems.length} produkter
+              {cartQuantity()} produkter
             </p>
           </div>
           <div className="p-[3px] bg-[#F1ECE6] rounded-[2px] max-w-[110px]">
             <p className="font-[Open Sans] text-[12px] truncate">
-              total: 4000 dkk
+              total: {cartTotal()} dkk
             </p>
           </div>
         </div>

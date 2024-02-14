@@ -1,3 +1,4 @@
+import { useCart } from "../../context/CartContext";
 import { Product } from "../../hooks/useGetOrder";
 
 export type FavItemProps = {
@@ -6,6 +7,8 @@ export type FavItemProps = {
 };
 
 export function FavoriteListItem({ item, edit }: FavItemProps) {
+  const { addToCart, removeFavoriteItem } = useCart();
+
   return (
     <div className="flex items-start gap-[13px]">
       <div className="rounded-[3px] w-[50px] h-[50px] bg-pillowpattern bg-contain" />
@@ -20,7 +23,7 @@ export function FavoriteListItem({ item, edit }: FavItemProps) {
       {edit ? (
         <button
           className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
-          onClick={() => {}}
+          onClick={() => removeFavoriteItem(item.id)}
         >
           <img
             className="w-[20px] h-[20px]"
@@ -31,7 +34,7 @@ export function FavoriteListItem({ item, edit }: FavItemProps) {
       ) : (
         <button
           className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
-          onClick={() => {}}
+          onClick={() => addToCart(item)}
         >
           <img
             className="w-[20px] h-[20px]"
