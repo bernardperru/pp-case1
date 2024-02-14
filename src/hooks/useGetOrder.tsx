@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Response } from "../types";
+import { useFetch } from "./useFetch";
 
 export type Product = {
   id: number;
@@ -17,21 +18,7 @@ export function useGetOrder() {
   });
   const url = "https://api.punkapi.com/v2/beers?page=1&per_page=7";
 
-  useEffect(() => {
-    const get = async () => {
-      const request = await fetch(url, {
-        method: "GET",
-      });
-      const response = await request.json();
-      setResponse({ error: "", data: response, loading: false });
-    };
-
-    try {
-      get();
-    } catch (error) {
-      setResponse({ data: null, error: "error", loading: false });
-    }
-  }, [url]);
+  setResponse(useFetch<Product>(url));
 
   return response;
 }

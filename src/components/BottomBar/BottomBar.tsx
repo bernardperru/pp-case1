@@ -58,22 +58,3 @@ export function BottomBar() {
     </div>
   );
 }
-/* Dine forhandler ressourcer for DYLAN puslepude */
-
-// position: absolute;
-// width: 401px;
-// height: 33px;
-// left: 454px;
-// top: 1056px;
-
-// font-family: 'Oswald';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 22px;
-// line-height: 33px;
-// /* identical to box height */
-// display: flex;
-// align-items: center;
-// text-align: center;
-
-// color: #261F18;

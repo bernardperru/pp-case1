@@ -1,10 +1,7 @@
-import { FrontPage } from "./pages/Frontpage";
-import { NavBarLink } from "./components/Navbar/Navbar";
-import { NavBar } from "./components/Navbar/Navbar";
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { BottomBar } from "./components/BottomBar/BottomBar";
+import { BottomBar, NavBar, NavBarLink } from "./components";
 import { CartProvider } from "./context/CartContext";
+import { FrontPage } from "./pages/Frontpage";
 
 const routes: NavBarLink[] = [
   { path: "/serier", title: "SERIER" },

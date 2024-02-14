@@ -1,14 +1,11 @@
-import { OrderList } from "../components/OrderList/OrderList";
-import { OldOrders } from "../components/LatestOrderList/OldOrders";
-import { FavoriteList } from "../components/FavoriteProductList/FavoriteList";
-import { useGetOrder } from "../hooks/useGetOrder";
-import { useGetFavorites } from "../hooks/useGetFavorites";
-import { useGetOldOrders } from "../hooks/useGetOldOrders";
-
 import {
   CampaignCard,
   CampaignProps,
-} from "../components/Campaign/CampaignCard";
+  FavoriteList,
+  OldOrders,
+  OrderList,
+} from "../components";
+import { useGetOldOrders } from "../hooks";
 
 const kampagner: CampaignProps[] = [
   {
@@ -66,10 +63,7 @@ const kampagner: CampaignProps[] = [
 ];
 
 export function FrontPage() {
-  const favorites = useGetFavorites();
   const oldOrders = useGetOldOrders();
-
-  const addToOrder = (id: number) => {};
 
   return (
     <div className="pl-60">

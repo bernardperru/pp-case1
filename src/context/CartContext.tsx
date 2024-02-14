@@ -5,8 +5,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Product, useGetOrder } from "../hooks/useGetOrder";
-import { useGetFavorites } from "../hooks/useGetFavorites";
+import { Product } from "../types";
+import { useGetFavorites, useGetOrder } from "../hooks";
 
 export type CartItem = {
   product: Product;
@@ -110,6 +110,7 @@ export function CartProvider({ children }: CartProviderProps) {
       return 0;
     }
   }
+
   return (
     <CartContext.Provider
       value={{

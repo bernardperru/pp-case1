@@ -27,27 +27,3 @@ export function Box({
     </div>
   );
 }
-
-// /* Gå til */
-
-// width: 28px;
-// height: 23px;
-
-// font-family: 'Oswald';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 14px;
-// line-height: 23px;
-// /* identical to box height, or 164% */
-
-// color: #261F18;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
-
-// /* arrow-right 1 */
-
-// width: 20px;
-// height: 20px;
