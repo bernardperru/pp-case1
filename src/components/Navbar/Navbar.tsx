@@ -1,52 +1,42 @@
-import { NavLink } from "react-router-dom";
-import { Searchbar } from "./Searchbar";
-import { User } from "./User";
-import { CountrySelect } from "./CountrySelect";
+import { NavLink } from 'react-router-dom';
+import { Searchbar } from './Searchbar';
+import { User } from './User';
+import { CountrySelect } from './CountrySelect';
 export type NavBarLink = {
-  path: string;
-  title: string;
+	path: string;
+	title: string;
 };
 
 type Props = {
-  links: NavBarLink[];
+	links: NavBarLink[];
 };
 
 export function NavBar({ links }: Props) {
-  return (
-    <div className="h-[108px] w-screen ">
-      <div className="h-[31px] bg-[#C4C9C1] flex items-center justify-center">
-        <p className="font-bold text-[12px] font-['Oswald] uppercase">
-          babyboo for professionals
-        </p>
-      </div>
-      <div className="bg-[#362B24] h-[77px] w-screen flex flex-row items-center pl-[240px] gap-[174px]">
-        <div className="flex flex-row items-center gap-[63px]">
-          <img
-            className="w-[126px] h-[46px]"
-            src="/icons/babyboologo.svg"
-            alt="Workflow"
-          />
-          <div className="flex flex-row items-center gap-[25px]  h-[31px]">
-            <div className="flex flex-row items-start gap-[27px] h-[21px]">
-              {links.map((link, index) => (
-                <NavLink
-                  key={index}
-                  to={link.path}
-                  className="text-white text-[14px]"
-                >
-                  {link.title}
-                </NavLink>
-              ))}
-            </div>
+	return (
+		<div className="h-[108px] w-screen ">
+			<div className="h-[31px] bg-[#C4C9C1] flex items-center justify-center">
+				<p className="font-bold text-[12px] font-['Oswald] uppercase">babyboo for professionals</p>
+			</div>
+			<div className="bg-[#362B24] h-[77px] w-screen flex flex-row items-center pl-[240px] gap-[174px]">
+				<div className="flex flex-row items-center gap-[63px]">
+					<img className="w-[126px] h-[46px]" src="/icons/babyboologo.svg" alt="Workflow" />
+					<div className="flex flex-row items-center gap-[25px]  h-[31px]">
+						<div className="flex flex-row items-start gap-[27px] h-[21px]">
+							{links.map((link, index) => (
+								<NavLink key={index} to={link.path} className="text-white text-[14px]">
+									{link.title}
+								</NavLink>
+							))}
+						</div>
 
-            <Searchbar />
-          </div>
-          <User />
-          <CountrySelect />
-        </div>
-      </div>
-    </div>
-  );
+						<Searchbar />
+					</div>
+					<User />
+					<CountrySelect />
+				</div>
+			</div>
+		</div>
+	);
 }
 
 // /* Frame 2 */
