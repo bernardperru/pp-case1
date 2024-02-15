@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Searchbar } from "./Searchbar";
 import { User } from "./User";
-import { LanguageSelect } from "./LanguageSelect";
+import { CountrySelect } from "./CountrySelect";
 export type NavBarLink = {
   path: string;
   title: string;
@@ -42,7 +42,7 @@ export function NavBar({ links }: Props) {
             <Searchbar></Searchbar>
           </div>
           <User></User>
-          <LanguageSelect></LanguageSelect>
+          <CountrySelect></CountrySelect>
         </div>
       </div>
     </div>
