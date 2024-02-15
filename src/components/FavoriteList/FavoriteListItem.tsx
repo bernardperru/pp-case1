@@ -1,5 +1,5 @@
 import { useCart } from "../../context/CartContext";
-import { Product } from "../../hooks/useGetOrder";
+import { Product } from "../../types";
 
 export type FavItemProps = {
   item: Product;

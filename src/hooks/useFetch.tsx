@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import { Response } from "../types";
 
 export function useFetch<T>(url: string) {
-  const [response, setResponse] = useState<Response<T>>({
-    data: null,
-    error: "",
-    loading: true,
-  });
+  const [data, setData] = useState<T>();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  useEffect(() => {
-    const get = async () => {
+  const fetchData = async () => {
+    try {
+      setLoading(true);
       const request = await fetch(url, { method: "GET" });
       const response = await request.json();
-      setResponse({ error: "", data: response, loading: false });
-    };
-
-    try {
-      get();
-    } catch (error) {
-      setResponse({ data: null, error: "error", loading: false });
+      setData(response);
+    } catch (e) {
+      setError(e as string);
+    } finally {
+      setLoading(false);
     }
-  }, [url]);
+  };
 
-  return response;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
 }

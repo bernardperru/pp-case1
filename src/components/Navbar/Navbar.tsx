@@ -19,8 +19,8 @@ export function NavBar({ links }: Props) {
       </div>
       <div className="bg-[#362B24] h-20 flex justify-start items-center gap-7 pl-60">
         <img className="" src="/icons/babyboologo.svg" alt="Workflow" />
-        {links.map((link) => (
-          <NavLink to={link.path} className="text-white h-5">
+        {links.map((link, index) => (
+          <NavLink key={index} to={link.path} className="text-white h-5">
             {link.title}
           </NavLink>
         ))}

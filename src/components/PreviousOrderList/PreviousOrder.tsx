@@ -1,11 +1,11 @@
-import { Product } from "../../hooks/useGetOrder";
+import { Product } from "../../types";
 
 type Props = {
   item: Product;
   color: boolean;
 };
 
-export function OldOrderItem({ item, color }: Props) {
+export function PreviousOrder({ item, color }: Props) {
   return (
     <div
       className={

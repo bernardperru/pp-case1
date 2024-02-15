@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { OrderListItem } from "./OrderListItem";
-import { Response } from "../../types";
-import { Product } from "../../hooks/useGetOrder";
 import { CartItem, useCart } from "../../context/CartContext";
 
 export function OrderList() {
   const [listLength, setListLength] = useState(4);
-  const { getItemQuantity, cartItems, cartTotal, cartQuantity } = useCart();
+  const { cartItems, cartTotal, cartQuantity } = useCart();
 
   const take = (amount: number): CartItem[] => {
     if (cartItems) {
@@ -15,13 +13,6 @@ export function OrderList() {
     }
 
     return [];
-  };
-
-  let fav = false;
-
-  const switchFavorite = () => {
-    fav = !fav;
-    return fav;
   };
 
   let colorSwitch = true;
@@ -65,11 +56,11 @@ export function OrderList() {
           </div>
         </div>
         <ul className="pt-2 flex flex-col gap-2">
-          {take(listLength).map((item) => (
+          {take(listLength).map((item, index) => (
             <OrderListItem
+              key={index}
               color={getColor()}
               item={item}
-              favorite={switchFavorite()}
             ></OrderListItem>
           ))}
         </ul>

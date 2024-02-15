@@ -2,13 +2,13 @@ import { CartItem, useCart } from "../../context/CartContext";
 
 type Props = {
   item: CartItem;
-  favorite: boolean;
   color: boolean;
 };
 
 export function OrderListItem({ item, color }: Props) {
   const { addFavoriteItem, isFavorite, removeFavoriteItem, getItemQuantity } =
     useCart();
+
   return (
     <li
       className={

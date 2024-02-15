@@ -44,8 +44,9 @@ export function BottomBar() {
           </p>
         </div>
         <div className="gap-[133px] pt-3 flex">
-          {boxes.map((box) => (
+          {boxes.map((box, index) => (
             <Box
+              key={index}
               buttonIcon={box.buttonIcon}
               buttonText={box.buttonText}
               icon={box.icon}

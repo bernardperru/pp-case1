@@ -1,7 +1,13 @@
-import { Product, Response } from "../../types";
-import { OldOrderItem } from "./OldOrderItem";
+import { Product } from "../../types";
+import { PreviousOrder } from "./PreviousOrder";
 
-export function OldOrders({ data, loading, error }: Response<Product>) {
+type previousOrderProp = {
+  data: Product[] | undefined;
+  loading: boolean;
+  error: string;
+};
+
+export function PreviousOrderList({ data, loading, error }: previousOrderProp) {
   let colorSwitch = true;
 
   const getColor = () => {
@@ -31,8 +37,12 @@ export function OldOrders({ data, loading, error }: Response<Product>) {
       </div>
       <div className="py-2">
         <div className="flex flex-col gap-2 min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-5">
-          {data.map((item) => (
-            <OldOrderItem item={item} color={getColor()}></OldOrderItem>
+          {data.map((item, index) => (
+            <PreviousOrder
+              key={index}
+              item={item}
+              color={getColor()}
+            ></PreviousOrder>
           ))}
         </div>
       </div>
