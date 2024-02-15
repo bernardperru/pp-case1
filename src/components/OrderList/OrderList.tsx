@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { OrderListItem } from "./OrderListItem";
 import { CartItem, useCart } from "../../context/CartContext";
+import { NavLink } from "react-router-dom";
 
 export function OrderList() {
   const [listLength, setListLength] = useState(4);
@@ -38,9 +39,12 @@ export function OrderList() {
           />
           <p className="uppercase font-medium text-[16px]">Bestillingsliste</p>
         </div>
-        <p className="font-[Open Sans] text-[14px] underline">
+        <NavLink
+          to={"/order"}
+          className="font-[Open Sans] text-[14px] underline"
+        >
           Gå til bestillingslisten
-        </p>
+        </NavLink>
       </div>
       <div className="w-[672px] min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
         <div className="flex place-content-between">

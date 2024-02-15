@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import {
   CampaignCard,
   CampaignProps,
@@ -67,6 +68,8 @@ export function FrontPage() {
 
   return (
     <div className="pl-60">
+      <Outlet></Outlet>
+
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
         <OrderList />
