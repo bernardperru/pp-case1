@@ -1,3 +1,3 @@
 export function OrderPage() {
-  return <div>here are your previous orders</div>;
+  return <div className="h-fit">here are your previous orders</div>;
 }

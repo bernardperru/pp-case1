@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Product } from "../../types";
 import { PreviousOrder } from "./PreviousOrder";
 
@@ -33,7 +34,12 @@ export function PreviousOrderList({ data, loading, error }: previousOrderProp) {
             seneste ordrer
           </div>
         </div>
-        <div className="font-['Open Sans'] text-[14px] underline">Se alle</div>
+        <NavLink
+          to={"/prev_orders"}
+          className="font-['Open Sans'] text-[14px] underline"
+        >
+          Se alle
+        </NavLink>
       </div>
       <div className="py-2">
         <div className="flex flex-col gap-2 min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-5">

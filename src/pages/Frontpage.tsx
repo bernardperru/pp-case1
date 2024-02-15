@@ -64,12 +64,10 @@ const kampagner: CampaignProps[] = [
 ];
 
 export function FrontPage() {
-  const { data, loading, error } = useGetOldOrders();
+  const { data, loading, error } = useGetOldOrders(5);
 
   return (
-    <div className="pl-60">
-      <Outlet></Outlet>
-
+    <>
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
         <OrderList />
@@ -94,6 +92,6 @@ export function FrontPage() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -33,7 +33,7 @@ const boxes: BoxProps[] = [
 
 export function BottomBar() {
   return (
-    <div className="h-[351px] bg-[#C4C9C1] flex justify-center items-center">
+    <div className="h-[351px] bg-[#C4C9C1] flex justify-center items-center sticky">
       <div className="flex flex-col">
         <div className="flex">
           <p className="mr-1 text-[22px] font-[400px] font-[Oswald]">
