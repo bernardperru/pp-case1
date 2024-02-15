@@ -30,6 +30,7 @@ module.exports = {
       auto: "auto",
       square: "1 / 1",
       video: "16 / 9",
+      x,
     },
     backdropBlur: ({ theme }) => theme("blur"),
     backdropBrightness: ({ theme }) => theme("brightness"),
