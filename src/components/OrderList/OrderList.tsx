@@ -25,7 +25,7 @@ export function OrderList() {
   };
 
   if (!cartItems) {
-    return <div></div>;
+    return <div />;
   }
 
   return (
@@ -61,11 +61,7 @@ export function OrderList() {
         </div>
         <ul className="pt-2 flex flex-col gap-2">
           {take(listLength).map((item, index) => (
-            <OrderListItem
-              key={index}
-              color={getColor()}
-              item={item}
-            ></OrderListItem>
+            <OrderListItem key={index} color={getColor()} item={item} />
           ))}
         </ul>
       </div>

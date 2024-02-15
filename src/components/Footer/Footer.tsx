@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "./Box";
+import { FooterBox, BoxProps } from "./FooterBox";
 
 const boxes: BoxProps[] = [
   {
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
         <div className="gap-[133px] pt-3 flex">
           {boxes.map((box, index) => (
-            <Box
+            <FooterBox
               key={index}
               buttonIcon={box.buttonIcon}
               buttonText={box.buttonText}

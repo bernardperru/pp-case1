@@ -39,10 +39,10 @@ export function NavBar({ links }: Props) {
               ))}
             </div>
 
-            <Searchbar></Searchbar>
+            <Searchbar />
           </div>
-          <User></User>
-          <CountrySelect></CountrySelect>
+          <User />
+          <CountrySelect />
         </div>
       </div>
     </div>

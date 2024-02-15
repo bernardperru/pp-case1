@@ -1,4 +1,4 @@
 export * from "./useGetFavorites";
-export * from "./useGetOldOrders";
+export * from "./useGetPreviousOrders";
 export * from "./useGetOrder";
 export * from "./useFetch";

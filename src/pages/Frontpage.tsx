@@ -5,7 +5,7 @@ import {
   PreviousOrderList,
   OrderList,
 } from "../components";
-import { useGetOldOrders } from "../hooks";
+import { useGetPreviousOrders } from "../hooks";
 
 const kampagner: CampaignProps[] = [
   {
@@ -63,18 +63,14 @@ const kampagner: CampaignProps[] = [
 ];
 
 export function FrontPage() {
-  const { data, loading, error } = useGetOldOrders(5, 1);
+  const { data, loading, error } = useGetPreviousOrders(5, 1);
 
   return (
     <>
       <div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
       <div className="flex gap-[25px]">
         <OrderList />
-        <PreviousOrderList
-          data={data}
-          error={error}
-          loading={loading}
-        ></PreviousOrderList>
+        <PreviousOrderList data={data} error={error} loading={loading} />
         <FavoriteList />
       </div>
       <div className="flex gap-6 py-4">
@@ -87,7 +83,7 @@ export function FrontPage() {
               interact={kampagne.interact}
               renderDuration={kampagne.renderDuration}
               title={kampagne.title}
-            ></CampaignCard>
+            />
           </div>
         ))}
       </div>

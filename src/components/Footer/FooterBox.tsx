@@ -6,7 +6,7 @@ export type BoxProps = {
   interact: () => void;
 };
 
-export function Box({
+export function FooterBox({
   buttonIcon,
   buttonText,
   icon,

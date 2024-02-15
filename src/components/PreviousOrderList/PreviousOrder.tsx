@@ -2,14 +2,14 @@ import { Product } from "../../types";
 
 type Props = {
   item: Product;
-  color: boolean;
+  isWhite: boolean;
 };
 
-export function PreviousOrder({ item, color }: Props) {
+export function PreviousOrder({ item, isWhite }: Props) {
   return (
     <div
       className={
-        color
+        isWhite
           ? "flex gap-[50px] bg-white p-[5px] h-[33px]"
           : "flex gap-[50px] p-[5px] h-[33px]"
       }

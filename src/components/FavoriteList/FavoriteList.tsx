@@ -39,11 +39,7 @@ export function FavoriteList() {
         <div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
           <div className="flex flex-col items-start py-2 gap-[7px]">
             {favoriteItems.map((item, index) => (
-              <FavoriteListItem
-                key={index}
-                item={item}
-                edit={edit}
-              ></FavoriteListItem>
+              <FavoriteListItem key={index} item={item} edit={edit} />
             ))}
           </div>
         </div>

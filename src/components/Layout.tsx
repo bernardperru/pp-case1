@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Footer, NavBar, NavBarLink } from "../components";
+import { Footer, NavBar, NavBarLink } from ".";
 
 const routes: NavBarLink[] = [
   { path: "/serier", title: "SERIER" },
@@ -13,12 +13,12 @@ const routes: NavBarLink[] = [
   { path: "/reservedele", title: "RESERVEDELE" },
 ];
 
-export function Container() {
+export function Layout() {
   return (
     <div>
       <NavBar links={routes} />
       <div className="pl-60 min-h-[465px]">
-        <Outlet></Outlet>
+        <Outlet />
       </div>
       <Footer />
     </div>

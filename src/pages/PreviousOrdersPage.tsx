@@ -1,26 +1,25 @@
 import { PreviousOrder } from "../components";
-import { useGetOldOrders } from "../hooks";
+import { useGetPreviousOrders } from "../hooks";
 import { usePagination } from "../hooks/usePagination";
-import { Product } from "../types";
 
 export function PreviousOrderPage() {
-  const { Pagination, paginationData } = usePagination(5);
-  const { data, loading, error } = useGetOldOrders(
+  const { Pagination, paginationData } = usePagination(20);
+  const { data, loading, error } = useGetPreviousOrders(
     paginationData.first,
     paginationData.page
   );
 
   if (!data) {
-    return <div></div>;
+    return <div />;
   }
 
   return (
     <div className="h-screen flex flex-col items-center p-5">
       {data.map((order) => (
-        <PreviousOrder color={true} item={order}></PreviousOrder>
+        <PreviousOrder isWhite={true} item={order} />
       ))}
 
-      <Pagination pagesNumber={5}></Pagination>
+      <Pagination pagesNumber={5} />
     </div>
   );
 }

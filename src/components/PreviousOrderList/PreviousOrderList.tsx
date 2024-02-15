@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Product } from "../../types";
 import { PreviousOrder } from "./PreviousOrder";
 
@@ -9,16 +9,8 @@ type previousOrderProp = {
 };
 
 export function PreviousOrderList({ data, loading, error }: previousOrderProp) {
-  let colorSwitch = true;
-
-  const getColor = () => {
-    const color = colorSwitch;
-    colorSwitch = !colorSwitch;
-    return color;
-  };
-
   if (!data) {
-    return <div></div>;
+    return <div />;
   }
 
   return (
@@ -34,21 +26,17 @@ export function PreviousOrderList({ data, loading, error }: previousOrderProp) {
             seneste ordrer
           </div>
         </div>
-        <NavLink
+        <Link
           to={"/prev_orders"}
           className="font-['Open Sans'] text-[14px] underline"
         >
           Se alle
-        </NavLink>
+        </Link>
       </div>
       <div className="py-2">
         <div className="flex flex-col gap-2 min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-5">
           {data.map((item, index) => (
-            <PreviousOrder
-              key={index}
-              item={item}
-              color={getColor()}
-            ></PreviousOrder>
+            <PreviousOrder key={index} item={item} isWhite={index % 2 === 0} />
           ))}
         </div>
       </div>
