@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import {
   CampaignCard,
   CampaignProps,
@@ -64,7 +63,7 @@ const kampagner: CampaignProps[] = [
 ];
 
 export function FrontPage() {
-  const { data, loading, error } = useGetOldOrders(5);
+  const { data, loading, error } = useGetOldOrders(5, 1);
 
   return (
     <>

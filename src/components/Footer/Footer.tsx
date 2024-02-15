@@ -31,7 +31,7 @@ const boxes: BoxProps[] = [
   },
 ];
 
-export function BottomBar() {
+export function Footer() {
   return (
     <div className="h-[351px] bg-[#C4C9C1] flex justify-center items-center sticky">
       <div className="flex flex-col">

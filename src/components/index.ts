@@ -1,4 +1,4 @@
-export * from "./BottomBar/index";
+export * from "./Footer/index";
 export * from "./Campaign/index";
 export * from "./FavoriteList/index";
 export * from "./PreviousOrderList/index";
