@@ -43,14 +43,14 @@ const kampagner: CampaignProps[] = [
 ];
 
 export function FrontPage() {
-	const { data, loading, error } = useGetPreviousOrders(5, 1);
+	const { data } = useGetPreviousOrders(5, 1);
 
 	return (
 		<>
 			<div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
 			<div className="flex gap-[25px]">
 				<OrderList />
-				<PreviousOrderList data={data} error={error} loading={loading} />
+				<PreviousOrderList data={data} />
 				<FavoriteList />
 			</div>
 			<div className="flex gap-6 py-4">

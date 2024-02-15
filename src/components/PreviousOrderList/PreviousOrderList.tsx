@@ -4,11 +4,9 @@ import { PreviousOrder } from './PreviousOrder';
 
 type previousOrderProp = {
 	data: Product[] | undefined;
-	loading: boolean;
-	error: string;
 };
 
-export function PreviousOrderList({ data, loading, error }: previousOrderProp) {
+export function PreviousOrderList({ data }: previousOrderProp) {
 	if (!data) {
 		return <div />;
 	}

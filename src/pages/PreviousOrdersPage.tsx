@@ -4,7 +4,7 @@ import { usePagination } from '../hooks/usePagination';
 
 export function PreviousOrderPage() {
 	const { Pagination, paginationData } = usePagination(20);
-	const { data, loading, error } = useGetPreviousOrders(paginationData.first, paginationData.page);
+	const { data } = useGetPreviousOrders(paginationData.first, paginationData.page);
 
 	if (!data) {
 		return <div />;

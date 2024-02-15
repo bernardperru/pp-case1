@@ -33,8 +33,8 @@ export function CartProvider({ children }: CartProviderProps) {
 	const [favoriteItems, setFavoriteItems] = useState<Product[]>([]);
 	const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-	const { data, loading, error } = useGetOrder();
-	const { data: favorites, loading: loading1, error: error1 } = useGetFavorites();
+	const { data } = useGetOrder();
+	const { data: favorites } = useGetFavorites();
 
 	useEffect(() => {
 		if (data) {
