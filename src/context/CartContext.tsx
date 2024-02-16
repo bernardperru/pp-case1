@@ -16,7 +16,7 @@ type UserContext = {
 	removeFavoriteItem: (id: number) => void;
 	getItemQuantity: (id: number) => number;
 	isFavorite: (id: number) => boolean;
-	addToCart: (product: Product) => void;
+	addToCart: (product: Product, message: string) => void;
 };
 
 type CartProviderProps = {
@@ -33,8 +33,8 @@ export function CartProvider({ children }: CartProviderProps) {
 	const [favoriteItems, setFavoriteItems] = useState<Product[]>([]);
 	const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-	const { data } = useGetOrder();
-	const { data: favorites } = useGetFavorites();
+	const { data, loading } = useGetOrder();
+	const { data: favorites, loading: loadingFavorites } = useGetFavorites();
 
 	useEffect(() => {
 		if (data) {
@@ -50,18 +50,30 @@ export function CartProvider({ children }: CartProviderProps) {
 		if (favorites) {
 			setFavoriteItems(favorites);
 		}
-	}, [favorites]);
+	}, [data]);
 
-	function addToCart(product: Product) {
+	function addToCart(product: Product, message: string) {
+		console.log(message);
 		setCartItems(currItems => {
+			console.log('ye');
 			const itemIndex = currItems.findIndex(item => item.product.id === product.id);
 
 			if (itemIndex === -1) {
 				return [...currItems, { product, quantity: 1 }];
+			} else {
+				return currItems.map(item => {
+					if (item.product.id === product.id) {
+						return { ...item, quantity: item.quantity + 1 };
+					} else {
+						return item;
+					}
+				});
 			}
 
-			currItems[itemIndex].quantity++;
-			return currItems;
+			//currItems[itemIndex].quantity = currItems[itemIndex].quantity + 1;
+			// console.log('efter: ' + currItems[itemIndex].quantity);
+
+			// return [...currItems];
 		});
 	}
 
@@ -73,7 +85,7 @@ export function CartProvider({ children }: CartProviderProps) {
 						.map(item => item.product.attenuation_level * item.quantity)
 						.reduce((sum, current) => sum + current, 0),
 				cartQuantity: () => cartItems.map(item => item.quantity).reduce((sum, current) => sum + current, 0),
-				addToCart,
+				addToCart: addToCart,
 				isFavorite: id => favoriteItems.some(item => item.id === id),
 				addFavoriteItem: product => setFavoriteItems([...favoriteItems, product]),
 				removeFavoriteItem: id => setFavoriteItems(favoriteItems.filter(item => item.id !== id)),

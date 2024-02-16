@@ -25,7 +25,7 @@ export function FavoriteListItem({ item, edit }: FavItemProps) {
 			) : (
 				<button
 					className="bg-[#C4C9C1] rounded-[24px] w-fit px-2 h-[33px] flex place-items-center justify-center gap-[2px]"
-					onClick={() => addToCart(item)}>
+					onClick={() => addToCart(item, 'kaldt fra favorite list item')}>
 					<img className="w-[20px] h-[20px]" src={'/icons/addtolist.svg'} alt="Workflow" />
 				</button>
 			)}
