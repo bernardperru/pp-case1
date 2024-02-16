@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { OrderListItem } from './OrderListItem';
 import { CartItem, useCart } from '../../context/CartContext';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function OrderList() {
 	const [listLength, setListLength] = useState(4);
@@ -29,17 +29,17 @@ export function OrderList() {
 	}
 
 	return (
-		<div className="w-[672px] h-fit">
+		<div className="h-fit w-[672px]">
 			<div className="flex place-content-between items-center">
 				<div className="flex items-center gap-3 pb-2">
 					<img className="w-[25px] h-[25px]" src="/icons/list1.svg" alt="Workflow" />
 					<p className="uppercase font-medium text-[16px]">Bestillingsliste</p>
 				</div>
-				<NavLink to={'/order'} className="font-[Open Sans] text-[14px] underline">
+				<Link to={'/order'} className="font-[Open Sans] text-[14px] underline">
 					Gå til bestillingslisten
-				</NavLink>
+				</Link>
 			</div>
-			<div className="w-[672px] min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4">
+			<div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4 relative pb-6">
 				<div className="flex place-content-between">
 					<div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
 						<p className="font-['Open Sans'] text-[12px] truncate">{cartQuantity()} produkter</p>
@@ -53,26 +53,25 @@ export function OrderList() {
 						<OrderListItem key={index} color={getColor()} item={item} />
 					))}
 				</ul>
-			</div>
-
-			<div className="flex place-content-center">
-				{listLength === 4 ? (
-					<button
-						className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
-						onClick={() => {
-							setListLength(100);
-						}}>
-						vis alle
-					</button>
-				) : (
-					<button
-						className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
-						onClick={() => {
-							setListLength(4);
-						}}>
-						vis færre
-					</button>
-				)}
+				<div className="absolute left-[288.5px]">
+					{listLength === 4 ? (
+						<button
+							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
+							onClick={() => {
+								setListLength(100);
+							}}>
+							Vis alle
+						</button>
+					) : (
+						<button
+							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
+							onClick={() => {
+								setListLength(4);
+							}}>
+							Vis færre
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);

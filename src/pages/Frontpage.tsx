@@ -46,14 +46,14 @@ export function FrontPage() {
 	const { data } = useGetPreviousOrders(5, 1);
 
 	return (
-		<>
-			<div className="py-10">VELKOMMEN TIL BABYBOB A/S</div>
-			<div className="flex gap-[25px]">
+		<div className="flex flex-col w-full">
+			<p className="py-10 sm:m-auto xl:m-0">VELKOMMEN TIL BABYBOB A/S</p>
+			<div className="flex sm:flex-col md:flex-col xl:flex-row gap-[25px] sm:justify-center sm:items-center xl:items-start xl:justify-start">
 				<OrderList />
 				<PreviousOrderList data={data} />
 				<FavoriteList />
 			</div>
-			<div className="flex gap-6 py-4">
+			<div className="flex gap-6 py-4 sm:flex-col md:flex-col lg:flex-col xl:flex-row shrink-0 sm:items-center">
 				{kampagner.map((kampagne, index) => (
 					<div key={index} className={'w-[288px] h-[310px] ' + kampagne.background}>
 						<CampaignCard
@@ -64,6 +64,6 @@ export function FrontPage() {
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	);
 }

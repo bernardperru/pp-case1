@@ -15,9 +15,9 @@ const routes: NavBarLink[] = [
 
 export function Layout() {
 	return (
-		<div>
+		<div className="flex flex-col h-screen justify-between">
 			<NavBar links={routes} />
-			<div className="pl-60 min-h-[465px]">
+			<div className="mb-auto xl:ml-60">
 				<Outlet />
 			</div>
 			<Footer />
