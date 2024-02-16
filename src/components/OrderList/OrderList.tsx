@@ -39,7 +39,7 @@ export function OrderList() {
 					Gå til bestillingslisten
 				</Link>
 			</div>
-			<div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4 relative pb-6">
+			<div className="min-h-[310px] rounded-[10px] bg-[#F5F5F5] p-4 pb-6">
 				<div className="flex place-content-between">
 					<div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
 						<p className="font-['Open Sans'] text-[12px] truncate">{cartQuantity()} produkter</p>
@@ -53,27 +53,27 @@ export function OrderList() {
 						<OrderListItem key={index} color={getColor()} item={item} />
 					))}
 				</ul>
-				<div className="absolute left-[288.5px]">
-					{listLength === 4 ? (
-						<button
-							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
-							onClick={() => {
-								setListLength(100);
-							}}>
-							Vis alle
-							<img className="w-3 h-3" src="/icons/pointdown.svg" alt="Workflow" />
-						</button>
-					) : (
-						<button
-							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
-							onClick={() => {
-								setListLength(4);
-							}}>
-							Vis færre
-							<img className="w-3 h-3" src="/icons/pointup.svg" alt="Workflow" />
-						</button>
-					)}
-				</div>
+			</div>
+			<div className="flex items-center justify-center">
+				{listLength === 4 ? (
+					<button
+						className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
+						onClick={() => {
+							setListLength(100);
+						}}>
+						Vis alle
+						<img className="w-3 h-3" src="/icons/pointdown.svg" alt="Workflow" />
+					</button>
+				) : (
+					<button
+						className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
+						onClick={() => {
+							setListLength(4);
+						}}>
+						Vis færre
+						<img className="w-3 h-3" src="/icons/pointup.svg" alt="Workflow" />
+					</button>
+				)}
 			</div>
 		</div>
 	);

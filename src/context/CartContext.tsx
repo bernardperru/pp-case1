@@ -70,7 +70,7 @@ export function CartProvider({ children }: CartProviderProps) {
 				});
 			}
 
-			//currItems[itemIndex].quantity = currItems[itemIndex].quantity + 1;
+			// currItems[itemIndex].quantity = currItems[itemIndex].quantity + 1;
 			// console.log('efter: ' + currItems[itemIndex].quantity);
 
 			// return [...currItems];
