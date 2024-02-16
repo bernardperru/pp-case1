@@ -56,19 +56,21 @@ export function OrderList() {
 				<div className="absolute left-[288.5px]">
 					{listLength === 4 ? (
 						<button
-							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
+							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
 							onClick={() => {
 								setListLength(100);
 							}}>
 							Vis alle
+							<img className="w-3 h-3" src="/icons/pointdown.svg" alt="Workflow" />
 						</button>
 					) : (
 						<button
-							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center"
+							className="bg-[#CFCCC5] rounded-[23px] w-[95px] h-[35px] text-center flex items-center justify-center gap-1"
 							onClick={() => {
 								setListLength(4);
 							}}>
 							Vis færre
+							<img className="w-3 h-3" src="/icons/pointup.svg" alt="Workflow" />
 						</button>
 					)}
 				</div>
