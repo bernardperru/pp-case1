@@ -16,7 +16,7 @@ type UserContext = {
 	removeFavoriteItem: (id: number) => void;
 	getItemQuantity: (id: number) => number;
 	isFavorite: (id: number) => boolean;
-	addToCart: (product: Product, message: string) => void;
+	addToCart: (product: Product) => void;
 };
 
 type CartProviderProps = {
@@ -52,8 +52,7 @@ export function CartProvider({ children }: CartProviderProps) {
 		}
 	}, [data]);
 
-	function addToCart(product: Product, message: string) {
-		console.log(message);
+	function addToCart(product: Product) {
 		setCartItems(currItems => {
 			console.log('ye');
 			const itemIndex = currItems.findIndex(item => item.product.id === product.id);

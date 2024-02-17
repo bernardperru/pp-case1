@@ -21,7 +21,7 @@ export function CountrySelect() {
 		<div>
 			<button className="flex flex-row items-center gap-[3px] justify-center" onClick={handleClick}>
 				<img className="w-[19px] h-[19px] " src="/icons/globe.svg" alt="Workflow" />
-				<p className="text-white w-[15px] text-[14px] font-normal flex items-center">{country}</p>
+				<p className="text-white text-[14px] font-normal">{country}</p>
 				<img className="w-[19px] h-[19px] " src="/icons/pilned.svg" alt="Workflow" />
 			</button>
 			{dropDown && (

@@ -33,13 +33,13 @@ const boxes: BoxProps[] = [
 
 export function Footer() {
 	return (
-		<div className="xl:h-[351px] bg-[#C4C9C1] flex justify-center items-center">
+		<div className="bg-[#C4C9C1] flex justify-center items-center">
 			<div className="">
 				<div className="flex py-4">
-					<p className="mr-1 text-[22px] font-[400px] font-[Oswald]">Dine forhandler ressourcer for</p>{' '}
-					<p className="text-[22px]  font-[Oswald] font-black">DYLAN puslepude</p>
+					<p className="mr-1 text-[22px] font-[400px] font-[Oswald]">Dine forhandler ressourcer for</p>
+					<p className="text-[22px]  font-['Oswald'] font-black">DYLAN puslepude</p>
 				</div>
-				<div className="xl:gap-[133px] pt-3 flex sm:flex-col sm:items-center sm:gap-[10px] xl:flex-row mb-10">
+				<div className="xl:gap-[133px] pt-3 flex sm:flex-col sm:items-center sm:gap-[30px] xl:flex-row mb-10">
 					{boxes.map((box, index) => (
 						<FooterBox
 							key={index}
