@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Searchbar } from './Searchbar';
 import { User } from './User';
 import { CountrySelect } from './CountrySelect';
@@ -25,8 +25,10 @@ export function NavBar({ links }: Props) {
 				<button onClick={() => setOpen(!open)} className="md:text-white xl:hidden">
 					BUTTON
 				</button>
-				<div className="flex flex-row items-center gap-[40px] xl:ml-60 xl:mr-auto sm:m-auto ">
-					<img src="/icons/babyboologo.svg" alt="Workflow" />
+				<div className="flex flex-row items-center gap-[40px] xl:ml-40 xl:mr-auto sm:m-auto ">
+					<Link to={'/'}>
+						<img src="/icons/babyboologo.svg" alt="Workflow" />
+					</Link>
 					<ul className="xl:flex flex-row gap-[20px] items-center justify-center md:hidden">
 						{links.map((link, index) => (
 							<NavLink key={index} to={link.path} className="text-white text-[14px]">

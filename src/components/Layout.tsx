@@ -17,7 +17,7 @@ export function Layout() {
 	return (
 		<div className="flex flex-col h-screen justify-between">
 			<NavBar links={routes} />
-			<div className="mb-auto xl:ml-60">
+			<div className="mb-auto xl:ml-40">
 				<Outlet />
 			</div>
 			<Footer />
