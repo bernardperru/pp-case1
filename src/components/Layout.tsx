@@ -2,15 +2,15 @@ import { Outlet } from 'react-router-dom';
 import { Footer, NavBar, NavBarLink } from '.';
 
 const routes: NavBarLink[] = [
-	{ path: '/serier', title: 'SERIER' },
-	{ path: '/vugge', title: 'VUGGE' },
-	{ path: '/børnesenge', title: 'BØRNESENGE' },
-	{ path: '/opbevaring', title: 'OPBEVARING' },
-	{ path: '/højstol', title: 'HØJSTOL' },
-	{ path: '/pusle', title: 'PUSLE' },
-	{ path: '/tekstiler', title: 'TEKSTILER' },
-	{ path: '/tilbehør', title: 'TILBEHØR' },
-	{ path: '/reservedele', title: 'RESERVEDELE' },
+	{ path: '/template', title: 'SERIER' },
+	{ path: '/template', title: 'VUGGE' },
+	{ path: '/template', title: 'BØRNESENGE' },
+	{ path: '/template', title: 'OPBEVARING' },
+	{ path: '/template', title: 'HØJSTOL' },
+	{ path: '/template', title: 'PUSLE' },
+	{ path: '/template', title: 'TEKSTILER' },
+	{ path: '/template', title: 'TILBEHØR' },
+	{ path: '/template', title: 'RESERVEDELE' },
 ];
 
 export function Layout() {
