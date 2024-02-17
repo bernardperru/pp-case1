@@ -35,7 +35,7 @@ export function OrderList() {
 					<img className="w-[25px] h-[25px]" src="/icons/list1.svg" alt="Workflow" />
 					<p className="uppercase font-medium text-[16px]">Bestillingsliste</p>
 				</div>
-				<Link to={'/order'} className="font-[Open Sans] text-[14px] underline">
+				<Link to={'/order'} className="font-['Open Sans'] text-[14px] underline">
 					Gå til bestillingslisten
 				</Link>
 			</div>
@@ -44,8 +44,8 @@ export function OrderList() {
 					<div className="p-[3px] bg-[#F1ECE6] rounded-[2px] w-fit">
 						<p className="font-['Open Sans'] text-[12px] truncate">{cartQuantity()} produkter</p>
 					</div>
-					<div className="p-[3px] bg-[#F1ECE6] rounded-[2px] max-w-[110px]">
-						<p className="font-[Open Sans] text-[12px] truncate">total: {cartTotal()} dkk</p>
+					<div className="p-[3px] bg-[#F1ECE6] rounded-[2px]">
+						<p className="font-['Open Sans'] text-[12px] truncate">total: {cartTotal()} dkk</p>
 					</div>
 				</div>
 				<ul className="pt-2 flex flex-col gap-2">

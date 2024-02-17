@@ -33,8 +33,8 @@ export function CartProvider({ children }: CartProviderProps) {
 	const [favoriteItems, setFavoriteItems] = useState<Product[]>([]);
 	const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-	const { data, loading } = useGetOrder();
-	const { data: favorites, loading: loadingFavorites } = useGetFavorites();
+	const { data } = useGetOrder();
+	const { data: favorites } = useGetFavorites();
 
 	useEffect(() => {
 		if (data) {
@@ -50,29 +50,21 @@ export function CartProvider({ children }: CartProviderProps) {
 		if (favorites) {
 			setFavoriteItems(favorites);
 		}
-	}, [data]);
+	}, [favorites]);
 
 	function addToCart(product: Product) {
 		setCartItems(currItems => {
-			console.log('ye');
-			const itemIndex = currItems.findIndex(item => item.product.id === product.id);
+			const newData = [...currItems];
+			let itemIndex = currItems.findIndex(item => item.product.id === product.id);
 
 			if (itemIndex === -1) {
-				return [...currItems, { product, quantity: 1 }];
+				newData.push({ product, quantity: 1 });
 			} else {
-				return currItems.map(item => {
-					if (item.product.id === product.id) {
-						return { ...item, quantity: item.quantity + 1 };
-					} else {
-						return item;
-					}
-				});
+				const currentItem = newData[itemIndex];
+				newData[itemIndex] = { ...currentItem, quantity: currentItem.quantity + 1 };
 			}
 
-			// currItems[itemIndex].quantity = currItems[itemIndex].quantity + 1;
-			// console.log('efter: ' + currItems[itemIndex].quantity);
-
-			// return [...currItems];
+			return newData;
 		});
 	}
 
